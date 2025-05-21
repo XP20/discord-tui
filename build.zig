@@ -16,8 +16,8 @@ pub fn build(b: *std.Build) void {
     });
 
     // Dependencies
-    const discord = b.dependency("discord", .{ .target = target, .optimize = optimize });
     const vaxis = b.dependency("vaxis", .{ .target = target, .optimize = optimize });
+    const discord = b.dependency("discord", .{ .target = target, .optimize = optimize });
 
     exe.root_module.addImport("vaxis", vaxis.module("vaxis"));
     exe.root_module.addImport("discord", discord.module("discord"));
