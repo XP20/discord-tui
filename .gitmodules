@@ -1,0 +1,3 @@
+[submodule "deps/libdiscord"]
+	path = deps/libdiscord
+	url = https://github.com/XP20/libdiscord

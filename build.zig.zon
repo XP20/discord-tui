@@ -1,0 +1,21 @@
+.{
+    .name = .discord_tui,
+    .version = "0.0.0",
+    .fingerprint = 0xc024e9d876784b31,
+    .minimum_zig_version = "0.14.0",
+    .dependencies = .{
+        .vaxis = .{
+            .url = "git+https://github.com/rockorager/libvaxis.git#84d6cb381c0d628550fac3f6daa24c5faf7b2cd1",
+            .hash = "vaxis-0.1.0-BWNV_O8OCQBC4w-MnOGaKw9zFVFgTxf3XfcvgScUagEJ",
+        },
+        .libdiscord = .{
+            .path = "./deps/libdiscord",
+        },
+    },
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "src",
+        "LICENSE",
+    },
+}
