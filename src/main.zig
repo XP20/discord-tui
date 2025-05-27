@@ -1,15 +1,18 @@
 const std = @import("std");
-const discord = @import("discord");
+const Discord = @import("discord").Discord;
 
 pub fn main() !void {
-    std.debug.print("All your {s} are belong to us.\n", .{"codebase"});
+    var gpa = std.heap.GeneralPurposeAllocator(.{}){};
+    defer std.debug.assert(gpa.deinit() == .ok);
+    const allocator = gpa.allocator();
 
-    const stdout_file = std.io.getStdOut().writer();
-    var bw = std.io.bufferedWriter(stdout_file);
-    const stdout = bw.writer();
+    // const stdout_file = std.io.getStdOut().writer();
+    // var bw = std.io.bufferedWriter(stdout_file);
+    // const stdout = bw.writer();
 
-    try stdout.print("Run `zig build test` to run the tests.\n", .{});
-    try stdout.print("Another thing {}", .{discord.add(1, 2)});
+    var discord = Discord.init(allocator);
+    try discord.login("email", "pass");
+    // try stdout.print("Another thing {}", .{discord.add(1, 2)});
 
-    try bw.flush(); // Don't forget to flush!
+    // try bw.flush(); // Don't forget to flush!
 }
